@@ -1,5 +1,6 @@
 package com.mokshad.SpringBootWithMysql.controller;
 
+import com.mokshad.SpringBootWithMysql.Exception.UserNotFoundException;
 import com.mokshad.SpringBootWithMysql.service.UserService;
 import com.mokshad.SpringBootWithMysql.entity.User;
 import lombok.AllArgsConstructor;
@@ -36,8 +37,14 @@ public class UserController {
     }
     @DeleteMapping("/deleteByUserId/{id}")
     public ResponseEntity<String> deleteUserById(@PathVariable Long id){
-      userService.deleteUser(id);
-      return new ResponseEntity<>("User sucessfully deleted"+id,HttpStatus.OK);
+     try {
+         userService.deleteUser(id);
+         return ResponseEntity.ok("User sucessfully deleted" + id);
+     }
+     catch(UserNotFoundException userException){
+         System.out.println("catch block executed");
+         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(userException.getMessage());
+     }
     }
 
 }

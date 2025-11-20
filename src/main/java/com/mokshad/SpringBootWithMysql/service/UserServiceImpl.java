@@ -1,5 +1,6 @@
 package com.mokshad.SpringBootWithMysql.service;
 
+import com.mokshad.SpringBootWithMysql.Exception.UserNotFoundException;
 import com.mokshad.SpringBootWithMysql.entity.User;
 import com.mokshad.SpringBootWithMysql.repository.UserRepository;
 
@@ -44,7 +45,7 @@ public class UserServiceImpl implements UserService{
             userRepository.deleteById(userId);
         }
         else{
-            throw new RuntimeException("userid not exist"+userId);
+            throw new UserNotFoundException("userid not exist"+userId);
         }
 
     }
