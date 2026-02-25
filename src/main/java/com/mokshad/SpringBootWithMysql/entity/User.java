@@ -14,6 +14,7 @@ import org.springframework.boot.autoconfigure.web.WebProperties;
 @Entity
 @Table(name="users")
 public class User {
+    //added lines
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
