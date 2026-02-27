@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionHandler {
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<String> handleUserNotFoundException(UserNotFoundException ue){
+        System.out.println("debugging purpose");
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ue.getMessage());
     }
 }
