@@ -18,6 +18,7 @@ public class UserController {
  @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user){
     User savedUser= userService.createUser(user);
+         System.out.println("userId: " + userId);
      return new ResponseEntity<>(savedUser, HttpStatus.OK);
     }
     @GetMapping("/{userId}")
