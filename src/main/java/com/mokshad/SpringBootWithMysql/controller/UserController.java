@@ -19,6 +19,8 @@ public class UserController {
     public ResponseEntity<User> createUser(@RequestBody User user){
     User savedUser= userService.createUser(user);
          System.out.println("userId: " + user);
+         System.out.println("userId changes done in remote: " + user);
+        
      return new ResponseEntity<>(savedUser, HttpStatus.OK);
     }
     @GetMapping("/{userId}")
