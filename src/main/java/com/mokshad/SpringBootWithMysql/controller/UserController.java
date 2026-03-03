@@ -20,8 +20,12 @@ public class UserController {
     User savedUser= userService.createUser(user);
          System.out.println("userId: " + user);
          System.out.println("userId changes done in remote: " + user);
+
          System.out.println("userId changes done in second remote: " + user);
-        
+
+     System.out.println("userId changes done in third: " + user);
+
+
      return new ResponseEntity<>(savedUser, HttpStatus.OK);
     }
     @GetMapping("/{userId}")
